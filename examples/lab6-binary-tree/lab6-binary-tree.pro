@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2019-09-30T09:16:14
+# Project created by QtCreator 2019-10-02T11:41:02
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = lab5-linked-2-list
+TARGET = lab6-binary-tree
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -25,12 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        linked2list.cpp \
+        binary_tree.cpp \
         main.cpp \
         mainwindow.cpp
 
 HEADERS += \
-        linked2list.h \
+        binary_tree.h \
         mainwindow.h
 
 FORMS += \
