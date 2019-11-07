@@ -26,7 +26,7 @@
       <item row="1" column="0">
        <widget class="QPushButton" name="pushButton">
         <property name="text">
-         <string>PushButton</string>
+         <string>Просто кнопка</string>
         </property>
        </widget>
       </item>
