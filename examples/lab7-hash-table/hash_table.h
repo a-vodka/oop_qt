@@ -29,10 +29,6 @@ class hash_table
       void Remove(QString k);
       void setQTable(QTableWidget* qtable);
       void PrintToQTable();
-
-
 };
-
-
 
 #endif // HASH_TABLE_H

@@ -1,5 +1,4 @@
 #include "hash_table.h"
-
 #include <QTableWidget>
 
 hash_table::hash_table()
@@ -24,11 +23,11 @@ hash_table::~hash_table()
 
 int hash_table::HashFunc(QString k)
 {
-   int s = 0;
+   unsigned int s = 0;
    for (int i =0; i< k.length(); i++)
-       s += k[i].digitValue();
+       s += uint(k[i].digitValue());
 
-   return s % T_S;
+   return int(s % T_S);
 }
 
 void hash_table::Insert(QString k, int v)
@@ -66,12 +65,12 @@ void hash_table::Remove(QString k)
       h = HashFunc(k + " ");
    }
    if (t[h] == nullptr) {
-     // cout<<"No Element found at key "<<k<<endl;
+      // cout<<"No Element found at key "<<k<<endl;
       return;
    } else {
       delete t[h];
    }
-   //cout<<"Element Deleted"<<endl;
+   PrintToQTable();
 }
 
 void hash_table::setQTable(QTableWidget* qtable)
@@ -81,8 +80,8 @@ void hash_table::setQTable(QTableWidget* qtable)
 
 void hash_table::PrintToQTable()
 {
-    qtable->setRowCount(T_S);
-    for (int i = 0; i < (int)T_S; i++)
+    qtable->setRowCount(int(T_S));
+    for (int i = 0; i < int(T_S); i++)
     {
         if (t[i])
         {
@@ -91,52 +90,3 @@ void hash_table::PrintToQTable()
         }
     }
 }
-
-
-
-
-/*
-int main() {
-   hash_table hash;
-   int k, v;
-   int c;
-   while (1) {
-      cout<<"1.Insert element into the table"<<endl;
-      cout<<"2.Search element from the key"<<endl;
-      cout<<"3.Delete element at a key"<<endl;
-      cout<<"4.Exit"<<endl;
-      cout<<"Enter your choice: ";
-      cin>>c;
-      switch(c) {
-         case 1:
-            cout<<"Enter element to be inserted: ";
-            cin>>v;
-            cout<<"Enter key at which element to be inserted: ";
-            cin>>k;
-            hash.Insert(k, v);
-         break;
-         case 2:
-            cout<<"Enter key of the element to be searched: ";
-            cin>>k;
-            if (hash.SearchKey(k) == -1) {
-               cout<<"No element found at key "<<k<<endl;
-               continue;
-            } else {
-               cout<<"Element at key "<<k<<" : ";
-               cout<<hash.SearchKey(k)<<endl;
-            }
-         break;
-         case 3:
-            cout<<"Enter key of the element to be deleted: ";
-            cin>>k;
-            hash.Remove(k);
-         break;
-         case 4:
-            exit(1);
-         default:
-            cout<<"\nEnter correct option\n";
-      }
-   }
-   return 0;
-}
-*/
