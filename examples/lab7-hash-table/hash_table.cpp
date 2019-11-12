@@ -13,19 +13,19 @@ hash_table::hash_table()
 
 hash_table::~hash_table()
 {
-   for (unsigned int i = 0; i < T_S; i++)
-   {
-      if (t[i] != nullptr)
-         delete t[i];
-         delete[] t;
-   }
+    for (unsigned int i = 0; i < T_S; i++)
+    {
+        if (t[i] != nullptr)
+            delete t[i];
+    }
+    delete[] t;
 }
 
 int hash_table::HashFunc(QString k)
 {
    unsigned int s = 0;
    for (int i =0; i< k.length(); i++)
-       s += uint(k[i].digitValue());
+       s += k[i].unicode();
 
    return int(s % T_S);
 }
