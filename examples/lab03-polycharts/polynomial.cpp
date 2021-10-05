@@ -59,11 +59,14 @@ QString Polynomial::getName()
     for (int i = 0;i < n;i++)
     {
         if (coef[i] > 0 and i!=0)
-            name += " + ";
+            name += "+";
         name += QString::number(coef[i], 'f', 1);
 
-        if ( i != 0)
-                name += "x^"+QString::number(i);
+        if (i == 1)
+            name += "x";
+
+        if (i > 1)
+            name += "x^"+QString::number(i);
     }
     return name;
 }
